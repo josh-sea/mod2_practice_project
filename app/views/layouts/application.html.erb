@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PartyPlanner</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <header>
+    <div>
+      <div class ="topnav">
+        <ul>
+          <li><%=link_to "Attendees", home_page_path, { :class=>"active" } %></li>
+          <li><%=link_to "Items", items_path, { :class=>"active" } %></li>
+          <li><%= link_to"New Attendee", new_attendee_path, { :class=>"active" } %></li>
+          <li><%=link_to"New Item", new_item_path, { :class=>"active" }%></li>
+        </ul>
+
+
+      </div>
+    </div>
+  </header>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

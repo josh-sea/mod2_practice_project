@@ -1,0 +1,7 @@
+<h1> Item Info </h1>
+<p><%= @item.name %></p>
+<p>$<%= @item.cost %>.00</p>
+<p><%= Attendee.find(@item.attendee_id).name %></p>
+<%= button_to "Edit", edit_item_path(@item), method: "get" %>
+<h3>Edit <%= Attendee.find(@item.attendee_id).name %></h3>
+<%= button_to "Edit", edit_attendee_path(Attendee.find(@item.attendee_id)), method: "get" %>

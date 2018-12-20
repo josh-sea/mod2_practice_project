@@ -1,0 +1,10 @@
+<h1> Add Someone to the party! </h1>
+<%= form_for @attendee do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :email %>
+<%= f.text_field :email %>
+<%= f.label :phone_number %>
+<%= f.text_field :phone_number %>
+<%= f.submit %>
+<% end %>

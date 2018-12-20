@@ -1,0 +1,18 @@
+
+
+<h3>Search For a Guest by Name: </h3>
+
+<%= form_tag(home_page_path, method: :get) do %>
+  Name: <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %> <br>
+<% if @attendees.length != Attendee.all.length %>
+<%= button_to "Back", home_page_path, method: "get" %>
+<% end %>
+<br>
+
+
+<h1>Here are all of your Party Goers!</h1>
+<% @attendees.each do |attendee| %>
+<span><%= link_to attendee.name, showtime_path(attendee)%></span><br>
+<% end %>

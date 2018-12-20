@@ -1,0 +1,20 @@
+<h1> Add an item for someone to bring to the party! </h1>
+<div><% if @errors   %>
+<ul><% @errors.each do |error| %>
+<li><%= error %></li>
+<% end %>
+</ul>
+<% end %>
+</div>
+<div>
+
+<%= form_for @item do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :cost %>
+<%= f.number_field :cost %>
+<%= f.label :attendee_name %>
+<%= collection_select(:item, :attendee_id, Attendee.all, :id, :name) %>
+<%= f.submit %>
+<% end %>
+</div>

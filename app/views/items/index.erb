@@ -1,0 +1,4 @@
+<h1>Here are the items people are bringing to the party!</h1>
+<% @items.each do |item| %>
+<span><%= link_to item.name, item_path(item)%></span><br>
+<% end %>

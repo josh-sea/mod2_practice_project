@@ -1,0 +1,18 @@
+<h1>Edit <%= @item.name %></h1>
+<div><% if @errors   %>
+<ul><% @errors.each do |error| %>
+<li><%= error %></li>
+<% end %>
+</ul>
+<% end %>
+</div>
+<%= form_for @item do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :cost %>
+<%= f.number_field :cost %><br><br>
+<p> Current name: <%= f.label :attendee_name, @item.attendee.name %> <br> New Name:
+<%= collection_select(:item, :attendee_id, Item.all, :attendee_id, :attendee_name, {:selected => Attendee.find(@item.attendee_id).id})%>
+<%= f.submit %>
+<% end %>
+<%= button_to "Delete", item_path(@item), method: "delete" %>

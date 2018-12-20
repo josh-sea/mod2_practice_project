@@ -1,0 +1,27 @@
+<h1>Edit <%= @attendee.name %></h1>
+<div><% if @errors   %>
+<ul><% @errors.each do |error| %>
+<li><%= error %></li>
+<% end %>
+</ul>
+<% end %>
+</div>
+<%= form_for @attendee do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :email %>
+<%= f.text_field :email %>
+<%= f.label :phone_number %>
+<%= f.text_field :phone_number %>
+<%= f.submit %>
+<% end %>
+<%= button_to "Delete", attendee_path(@attendee), method: "delete" %><br><br>
+<h2>Edit/delete <%= @attendee.name %> items</h2>
+<% @attendee.items.each do |item| %>
+<span><label ><%= item.name %></label>
+<%= button_to "Edit", edit_item_path(item), method: "get" %></span>
+<%= button_to "Delete", item_path(item), method: "delete" %><br>
+<% end %>
+
+<h3>Add items to <%= @attendee.name %></h3>
+<%= button_to "New Item", new_item_path, method: "get" %>

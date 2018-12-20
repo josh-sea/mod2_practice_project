@@ -1,0 +1,17 @@
+<div>
+  <h1> Party Goer Info </h1>
+    <p><%= @attendee.name %></p>
+    <p><%= @attendee.email %></p>
+    <p><%= @attendee.phone_number %></p>
+    <%= button_to "Edit", edit_attendee_path(@attendee), method: "get" %>
+</div><br><br>
+<div>
+  <h2><%= @attendee.name %> is bringing the below to the party:</h2>
+  <% @attendee.items.each do |item| %>
+  <p><%= item.name %>, $<%= item.cost %>.00</p>
+  <%= button_to "Edit", edit_item_path(item), method: "get" %>
+  <%= button_to "Delete", item_path(item), method: "delete" %>
+  <% end %>
+
+
+</div>
